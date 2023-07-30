@@ -1,21 +1,20 @@
 package br.com.devmpoda;
 
 import br.com.devmpoda.descontos.CalculadoraDeDescontos;
-import br.com.devmpoda.imposto.CalculadoraDeImpostos;
-import br.com.devmpoda.imposto.ICMS;
-import br.com.devmpoda.imposto.ISS;
+import br.com.devmpoda.orcamento.Orcamento;
 
 import java.math.BigDecimal;
 
 public class TestesDescontos {
 
     public static void main(String[] args) {
-        Orcamento orcamento = new Orcamento(new BigDecimal("200"),6);
-        Orcamento segundoOrcamento = new Orcamento(new BigDecimal("1000"),1);
+        Orcamento primeiro = new Orcamento(new BigDecimal("200"), 6);
+        Orcamento segundo = new Orcamento(new BigDecimal("1000"), 2);
+        Orcamento terceiro = new Orcamento(new BigDecimal("500"), 1);
 
-        CalculadoraDeDescontos calculadoraDeDescontos = new CalculadoraDeDescontos();
-        System.out.println(calculadoraDeDescontos.calcular(orcamento));
-        System.out.println(calculadoraDeDescontos.calcular(segundoOrcamento));
-
+        CalculadoraDeDescontos calculadora = new CalculadoraDeDescontos();
+        System.out.println(calculadora.calcular(primeiro));
+        System.out.println(calculadora.calcular(segundo));
+        System.out.println(calculadora.calcular(terceiro));
     }
 }

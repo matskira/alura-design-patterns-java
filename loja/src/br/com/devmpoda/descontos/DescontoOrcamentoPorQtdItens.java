@@ -1,6 +1,6 @@
 package br.com.devmpoda.descontos;
 
-import br.com.devmpoda.Orcamento;
+import br.com.devmpoda.orcamento.Orcamento;
 
 import java.math.BigDecimal;
 
