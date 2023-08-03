@@ -17,16 +17,6 @@ public class GeraPedido {
         this.quantidadeItens = quantidadeItens;
     }
 
-    public void executa() {
-        Orcamento orcamento = new Orcamento(this.valorOrcamento, this.quantidadeItens);
-
-        Pedido pedido = new Pedido(this.cliente, LocalDateTime.now(), orcamento);
-
-        //Execução de comandos vai sempre ficar repetida;
-        System.out.println("Salvar pedido no Banco de Dados");
-        System.out.println("Enviar e-mail com dados do novo pedido");
-    }
-
     public String getCliente() {
         return cliente;
     }
