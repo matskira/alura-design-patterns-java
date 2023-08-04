@@ -4,9 +4,11 @@ import br.com.devmpoda.orcamento.Orcamento;
 import br.com.devmpoda.orcamento.pedido.GeraPedido;
 import br.com.devmpoda.orcamento.pedido.GeraPedidoHandler;
 import br.com.devmpoda.orcamento.pedido.Pedido;
+import br.com.devmpoda.orcamento.pedido.acao.EnviarEmailPedido;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.util.Arrays;
 import java.util.List;
 
 public class TestesPedido {
@@ -18,6 +20,7 @@ public class TestesPedido {
         int quantidadeItens = Integer.parseInt(args[2]);
 
         GeraPedido gerador = new GeraPedido(cliente, valorOrcamento, quantidadeItens);
-        GeraPedidoHandler handler = new GeraPedidoHandler(/*dependencias*/);
+        GeraPedidoHandler handler = new GeraPedidoHandler(Arrays.asList(new EnviarEmailPedido(),
+                new EnviarEmailPedido()));
     }
 }
