@@ -1,6 +1,8 @@
 package br.com.devmpoda.orcamento.pedido;
 
 import br.com.devmpoda.orcamento.Orcamento;
+import br.com.devmpoda.orcamento.pedido.acao.EnviarEmailPedido;
+import br.com.devmpoda.orcamento.pedido.acao.SalvarPedidoNoBancoDeDados;
 
 import java.time.LocalDateTime;
 
@@ -14,7 +16,10 @@ public class GeraPedidoHandler {
         Pedido pedido = new Pedido(dados.getCliente(), LocalDateTime.now(), orcamento);
 
         //Execução de comandos vai sempre ficar repetida;
-        System.out.println("Salvar pedido no Banco de Dados");
-        System.out.println("Enviar e-mail com dados do novo pedido");
+        EnviarEmailPedido email = new EnviarEmailPedido();
+        SalvarPedidoNoBancoDeDados salvar = new SalvarPedidoNoBancoDeDados();
+
+        email.executar(pedido);
+        salvar.executar(pedido);
     }
 }
